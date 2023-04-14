@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import express, { Request, Response } from "express";
+import express from "express";
 require('dotenv').config()
 
 import connection from "./database/database";

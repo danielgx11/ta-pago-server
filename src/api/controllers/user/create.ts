@@ -1,9 +1,8 @@
 import { Request, Response } from 'express';
 import User from '../../../database/models/user';
-import { CreateUserRequest, LoginRequest } from '../../ports/requests';
+import { CreateUserRequest } from '../../ports/requests';
 import { CreateUserResponse } from '../../ports/responses';
 require('dotenv').config();
-const crypto = require('crypto');
 
 const createUser = async (req: Request, res: Response): Promise<Response | void> => {
   const userAttributes: CreateUserRequest = {

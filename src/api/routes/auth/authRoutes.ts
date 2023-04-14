@@ -1,6 +1,4 @@
 import { Router } from 'express';
-import { Request, Response } from 'express';
-import User from '../../../database/models/user';
 import { loginAdapter } from '../../adapters/auth/login';
 import { login } from '../../controllers';
 

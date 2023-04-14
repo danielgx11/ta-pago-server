@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/main.ts",
-    "start": "ts-node-dev src/main.ts"
+    "start": "ts-node-dev src/main.ts",
+    "lint": "eslint . --ext .ts"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,9 @@
     "@types/jsonwebtoken": "^9.0.1",
     "@types/node": "^18.15.11",
     "@types/validator": "^13.7.14",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "eslint": "^8.38.0",
     "nodemon": "^2.0.15",
     "sequelize-cli": "^6.4.1",
     "ts-node-dev": "^2.0.0",

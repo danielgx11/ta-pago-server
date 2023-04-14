@@ -1,9 +1,8 @@
-import { Request, Response, response } from 'express';
+import { Request, Response } from 'express';
 import User from '../../../database/models/user';
 import { LoginRequest } from '../../ports/requests';
 import jwt from 'jsonwebtoken';
 import { LoginResponse } from '../../ports/responses';
-import { PassThrough } from 'stream';
 require('dotenv').config();
 const crypto = require('crypto');
 
