@@ -1,3 +1,4 @@
-import { loginAdapter } from "./auth/auth-adapter";
+import { loginAdapter } from "./auth/login";
+import { createUserAdapter } from "./user/create";
 
-export { loginAdapter }
+export { loginAdapter, createUserAdapter }

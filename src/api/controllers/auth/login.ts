@@ -1,7 +1,9 @@
-import { Request, Response } from 'express';
+import { Request, Response, response } from 'express';
 import User from '../../../database/models/user';
 import { LoginRequest } from '../../ports/requests';
 import jwt from 'jsonwebtoken';
+import { LoginResponse } from '../../ports/responses';
+import { PassThrough } from 'stream';
 require('dotenv').config();
 const crypto = require('crypto');
 
@@ -18,22 +20,28 @@ const login = async (req: Request, res: Response): Promise<Response | void> => {
   });
 
   if (!current) {
-    return res.status(401).end();
+    return res.status(401).json('User does not exist!').end();
   }
 
   const hashPassword = crypto.createHmac('SHA256', process.env.PASSWORD_KEY)
     .update(loginAttributes.password)
     .digest('base64');
 
-  if (hashPassword === current.password && process.env.SECRET) {
-    const token = jwt.sign({
-      userId: current.userId
-    }, process.env.SECRET, { expiresIn: 86400 });
-    return res.json({ accessToken: token });
-
-  } else {
-    res.status(401).end();
+  if (hashPassword !== current.get('password')) {
+    return res.status(401).json('Invalid password!').end();
   }
+
+  const token = jwt.sign({
+    userId: current.userId
+  }, process.env.SECRET || '', { expiresIn: 86400 });
+
+  const response: LoginResponse = {
+    userId: current.get('userId'),
+    name: current.get('name'),
+    email: current.get('email'),
+    accessToken: token,
+  }
+  return res.json(response);
 }
 
 export { login }

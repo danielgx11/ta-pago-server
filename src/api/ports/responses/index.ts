@@ -1,3 +1,4 @@
-import LoginResponse from "./auth/login-request";
+import LoginResponse from "./auth/login-response";
+import CreateUserResponse from "./user/create-user-response";
 
-export { LoginResponse }
+export { LoginResponse, CreateUserResponse }

@@ -1,3 +1,4 @@
-import { login } from "./auth/auth-controller";
+import { login } from "./auth/login";
+import { createUser } from "./user/create";
 
-export { login }
+export { login, createUser }
