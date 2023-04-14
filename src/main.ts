@@ -3,12 +3,13 @@ import express, { Request, Response } from "express";
 require('dotenv').config()
 
 import connection from "./database/database";
-import { userRoutes } from "./api/routes";
+import { authRoutes, userRoutes } from "./api/routes";
 const app = express();
 
 app.use(express.json());
 
 app.use(userRoutes);
+app.use(authRoutes);
 
 const start = async (): Promise<void> => {
   try {
