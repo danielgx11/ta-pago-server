@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/luccasilva/ta-pago-server#readme",
   "devDependencies": {
+    "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/jsonwebtoken": "^9.0.1",
     "@types/node": "^18.15.11",
