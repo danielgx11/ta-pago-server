@@ -1,27 +1,29 @@
-import { Table, Column, Model, DataType, HasMany } from 'sequelize-typescript';
-import { UserInterface } from '../../interfaces';
-import Participation from './participation';
+import { Table, Column, Model, DataType, ForeignKey, BelongsTo, HasMany } from 'sequelize-typescript';
+import { RecordInterface } from '../../interfaces';
+import User from './user';
 import Exercise from './exercise';
-import Record from './record';
 
 @Table({
-  tableName: "users",
+  tableName: "records",
 })
-export default class User extends Model<UserInterface> {
+export default class Record extends Model<RecordInterface> {
   @Column({
     type: DataType.UUID,
     defaultValue: DataType.UUIDV4,
     allowNull: false,
     primaryKey: true,
   })
+  recordId: string;
+
+  @ForeignKey(() => User)
+  @Column({
+    type: DataType.UUID,
+    allowNull: false,
+  })
   userId: string;
 
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-    unique: true,
-  })
-  email: string;
+  @BelongsTo(() => User)
+  user: User;
 
   @Column({
     type: DataType.STRING,
@@ -33,7 +35,7 @@ export default class User extends Model<UserInterface> {
     type: DataType.STRING,
     allowNull: false,
   })
-  password: string;
+  description: string;
 
   @Column({
     type: DataType.DATE,
@@ -49,25 +51,18 @@ export default class User extends Model<UserInterface> {
   })
   updatedAt: Date;
 
-  @HasMany(() => Participation)
-  participations: Participation[];
-
   @HasMany(() => Exercise)
   exercises: Exercise[];
 
-  @HasMany(() => Record)
-  records: Record[];
-
   constructor(values?: any, options?: any) {
     super(values, options);
+    this.recordId = '';
     this.userId = '';
+    this.user = new User();
     this.name = '';
-    this.email = '';
-    this.password = '';
+    this.description = '';
     this.createdAt = new Date();
     this.updatedAt = new Date();
-    this.participations = [];
     this.exercises = [];
-    this.records = [];
   }
 }

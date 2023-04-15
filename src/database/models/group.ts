@@ -1,27 +1,24 @@
 import { Table, Column, Model, DataType, HasMany } from 'sequelize-typescript';
-import { UserInterface } from '../../interfaces';
+import { GroupInterface } from '../../interfaces';
 import Participation from './participation';
-import Exercise from './exercise';
-import Record from './record';
 
 @Table({
-  tableName: "users",
-})
-export default class User extends Model<UserInterface> {
+  tableName: "groups",
+}) export default class Group extends Model<GroupInterface> {
   @Column({
     type: DataType.UUID,
     defaultValue: DataType.UUIDV4,
     allowNull: false,
     primaryKey: true,
   })
-  userId: string;
+  groupId: string;
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
     unique: true,
   })
-  email: string;
+  tag: string;
 
   @Column({
     type: DataType.STRING,
@@ -33,7 +30,7 @@ export default class User extends Model<UserInterface> {
     type: DataType.STRING,
     allowNull: false,
   })
-  password: string;
+  description: string;
 
   @Column({
     type: DataType.DATE,
@@ -52,22 +49,14 @@ export default class User extends Model<UserInterface> {
   @HasMany(() => Participation)
   participations: Participation[];
 
-  @HasMany(() => Exercise)
-  exercises: Exercise[];
-
-  @HasMany(() => Record)
-  records: Record[];
-
   constructor(values?: any, options?: any) {
     super(values, options);
-    this.userId = '';
+    this.groupId = '';
+    this.tag = '';
     this.name = '';
-    this.email = '';
-    this.password = '';
+    this.description = '';
     this.createdAt = new Date();
     this.updatedAt = new Date();
     this.participations = [];
-    this.exercises = [];
-    this.records = [];
   }
 }
