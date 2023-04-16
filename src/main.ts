@@ -4,7 +4,7 @@ import cors from 'cors';
 require('dotenv').config()
 
 import connection from "./database/database";
-import { authRoutes, userRoutes } from "./api/routes";
+import { authRoutes, exerciseRoutes, userRoutes } from "./api/routes";
 const app = express();
 
 app.use(cors({
@@ -14,6 +14,7 @@ app.use(cors({
 app.use(express.json());
 app.use(userRoutes);
 app.use(authRoutes);
+app.use(exerciseRoutes);
 
 const start = async (): Promise<void> => {
   try {

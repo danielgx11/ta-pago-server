@@ -31,8 +31,8 @@ const login = async (req: Request, res: Response): Promise<Response | void> => {
   }
 
   const token = jwt.sign({
-    userId: current.userId
-  }, process.env.SECRET || '', { expiresIn: 86400 });
+    userId: current.get('userId')
+  }, process.env.SECRET || '');
 
   const response: LoginResponse = {
     userId: current.get('userId'),
