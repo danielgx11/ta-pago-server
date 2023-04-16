@@ -9,6 +9,7 @@ describe('RecordInterface', () => {
       userId: '1',
       name: 'Running',
       description: '5 km run',
+      exercises: []
     };
   });
 
@@ -30,6 +31,10 @@ describe('RecordInterface', () => {
 
   it('should have a description property', () => {
     expect(record.description).toBe('5 km run');
+  });
+
+  it('should have a exercises property', () => {
+    expect(record.recordId).toBe([]);
   });
 
   it('should have an optional createdAt property', () => {
