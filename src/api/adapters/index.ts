@@ -9,6 +9,11 @@ import { createRecordAdapter } from "./record/create";
 import { deleteRecordAdapter } from "./record/delete";
 import { getRecordAdapter } from "./record/get";
 import { putRecordAdapter } from "./record/put";
+import { createGroupAdapter } from "./group/create";
+import { joinGroupAdapter } from "./group/join";
+import { getUserGroupsAdapter } from "./group/get-user-groups";
+import { getGroupInfoAdapter } from "./group/get-group-info";
+
 
 export {
   loginAdapter,
@@ -22,4 +27,8 @@ export {
   deleteRecordAdapter,
   getRecordAdapter,
   putRecordAdapter,
+  createGroupAdapter,
+  joinGroupAdapter,
+  getUserGroupsAdapter,
+  getGroupInfoAdapter,
 }

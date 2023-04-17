@@ -7,6 +7,10 @@ import CreateRecordRequest from "./record/create-record-request";
 import DeleteRecordRequest from "./record/delete-record-request";
 import GetRecordRequest from "./record/get-record-request";
 import PutRecordRequest from "./record/put-record-request";
+import CreateGroupRequest from "./group/create-group-request";
+import JoinGroupRequest from "./group/join-group-request";
+import GetUserGroupsRequest from "./group/get-user-groups-request";
+import GetGroupInfoRequest from "./group/get-group-info-request";
 
 export {
   LoginRequest,
@@ -18,4 +22,8 @@ export {
   DeleteRecordRequest,
   GetRecordRequest,
   PutRecordRequest,
+  CreateGroupRequest,
+  JoinGroupRequest,
+  GetUserGroupsRequest,
+  GetGroupInfoRequest,
 }

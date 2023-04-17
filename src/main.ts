@@ -2,7 +2,7 @@ import "reflect-metadata";
 import express from "express";
 import cors from 'cors';
 import connection from "./database/database";
-import { authRoutes, exerciseRoutes, recordRoutes, userRoutes } from "./api/routes";
+import { authRoutes, exerciseRoutes, groupRoutes, recordRoutes, userRoutes } from "./api/routes";
 
 require('dotenv').config()
 
@@ -18,6 +18,7 @@ app.use(userRoutes);
 app.use(authRoutes);
 app.use(exerciseRoutes);
 app.use(recordRoutes);
+app.use(groupRoutes);
 
 const start = async (): Promise<void> => {
   try {

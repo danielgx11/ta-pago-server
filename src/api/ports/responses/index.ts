@@ -7,6 +7,9 @@ import CreateRecordResponse from "./record/create-record-response";
 import DeleteRecordResponse from "./record/delete-record-response";
 import GetRecordResponse from "./record/get-record-response";
 import PutRecordResponse from "./record/put-record-response";
+import CreateGroupResponse from "./group/create-group-response";
+import JoinGroupResponse from "./group/join-group-response";
+import GetUserGroupsResponse from "./group/get-user-groups-response";
 
 export {
   LoginResponse,
@@ -18,4 +21,7 @@ export {
   DeleteRecordResponse,
   GetRecordResponse,
   PutRecordResponse,
+  CreateGroupResponse,
+  JoinGroupResponse,
+  GetUserGroupsResponse,
 }
