@@ -1,5 +1,5 @@
 import { Response, NextFunction, Request, RequestHandler } from 'express';
-import { AuthRequest } from '../../../interfaces';
+import { AuthRequest } from '../../ports/requests';
 const jwt = require('jsonwebtoken');
 
 function isAuthRequest(req: Request): req is AuthRequest {

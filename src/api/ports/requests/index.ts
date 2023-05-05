@@ -11,8 +11,10 @@ import CreateGroupRequest from "./group/create-group-request";
 import JoinGroupRequest from "./group/join-group-request";
 import GetUserGroupsRequest from "./group/get-user-groups-request";
 import GetGroupInfoRequest from "./group/get-group-info-request";
+import AuthRequest from "./auth/auth-request";
 
 export {
+  AuthRequest,
   LoginRequest,
   CreateUserRequest,
   CreateExerciseRequest,
