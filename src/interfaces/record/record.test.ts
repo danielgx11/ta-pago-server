@@ -9,7 +9,7 @@ describe('RecordInterface', () => {
       userId: '1',
       name: 'Running',
       description: '5 km run',
-      exercises: []
+      exercises: undefined,
     };
   });
 
@@ -34,7 +34,7 @@ describe('RecordInterface', () => {
   });
 
   it('should have a exercises property', () => {
-    expect(record.recordId).toBe([]);
+    expect(record.exercises).toBe(undefined);
   });
 
   it('should have an optional createdAt property', () => {
