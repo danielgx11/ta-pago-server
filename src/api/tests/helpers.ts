@@ -1,7 +1,13 @@
 import { Request, Response } from "express";
 
-const mockRequest = <T>(body: T, headers?: any): Partial<Request> => ({
-  body, headers
+interface AuthedRequest extends Request {
+  requestingUserId?: any;
+}
+
+const mockRequest = <T>(body: T, headers?: any, requestingUserId?: any): Partial<AuthedRequest> => ({
+  body,
+  headers,
+  requestingUserId,
 });
 
 const mockResponse = (): Partial<Response> => {
