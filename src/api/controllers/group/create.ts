@@ -34,4 +34,4 @@ const createGroup = async (req: Request, res: Response): Promise<Response | void
   return res.json(response);
 }
 
-export { createGroup }
+export { createGroup, getGroupHash }
