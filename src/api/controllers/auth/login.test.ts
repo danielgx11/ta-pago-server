@@ -49,7 +49,7 @@ describe('login', () => {
 
     await login(req as Request, res as Response);
 
-    expect(res.status).toHaveBeenCalledWith(401);
+    expect(res.status).toHaveBeenCalledWith(402);
     expect(res.json).toHaveBeenCalledWith('User does not exist!');
     expect(res.end).toHaveBeenCalled();
   });
