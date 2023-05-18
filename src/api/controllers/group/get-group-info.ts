@@ -66,11 +66,9 @@ const getGroupInfo = async (req: Request, res: Response): Promise<Response | voi
     return res.json([]);
   }
 
-  console.log('aanbfkjwbfkwjbfkjwbkjbdjkwb')
-
   const response: GetGroupInfoResponse[] = await getUsersGroupInfo(participations);
 
   return res.json(response);
 }
 
-export { getGroupInfo }
+export { getGroupInfo, getUsersGroupInfo }

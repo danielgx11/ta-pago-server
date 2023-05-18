@@ -1,9 +1,8 @@
 import { Request, Response } from 'express';
 import { CreateGroupRequest } from '../../ports/requests';
 import { mockRequest, mockResponse } from '../../tests/helpers';
-import { createGroup, getGroupHash } from './create';
+import { createGroup } from './create';
 import Group from '../../../database/models/group';
-import crypto from 'crypto';
 
 jest.mock('../../../database/models/group');
 
