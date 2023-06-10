@@ -70,4 +70,27 @@ describe("[Integration Tests] Create User", () => {
     expect(response.body.name).toEqual(payload.name);
     expect(response.body.email).toEqual(payload.email);
   });
+
+  it("Should hash the user's password before saving", async () => {
+    const payload = {
+      email: "john@example.com",
+      name: "John",
+      password: "password123",
+    };
+
+    const response = await post({ params: payload, path: "/user" });
+
+    expect(response.statusCode).toEqual(200);
+    expect(response.body.name).toEqual(payload.name);
+    expect(response.body.email).toEqual(payload.email);
+
+    const createdUser = await User.findOne({
+      where: {
+        email: payload.email,
+      },
+    });
+
+    expect(createdUser).toBeDefined();
+    expect(createdUser?.password).not.toEqual(payload.password);
+  });
 });
