@@ -2,13 +2,12 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -17,6 +16,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - uses: isbang/compose-action@v1.4.1
+        with:
+          compose-file: "./tp/server/docker-compose.yml"
+          down-flags: "--volumes"
+          services: |
+            postgres
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
