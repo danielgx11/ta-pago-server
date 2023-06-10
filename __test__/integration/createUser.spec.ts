@@ -30,4 +30,44 @@ describe("[Integration Tests] Create User", () => {
 
     expect(response.statusCode).toEqual(200);
   });
+
+  it("Should return an error if the email is already used", async () => {
+    const payload = {
+      email: "existing_email@example.com",
+      name: "John",
+      password: "password123",
+    };
+
+    await User.create(payload);
+
+    const response = await post({ params: payload, path: "/user" });
+
+    expect(response.statusCode).toEqual(401);
+    expect(response.body).toEqual("Email already used!");
+  });
+
+  it("Should return an error if required fields are missing", async () => {
+    const payload = {
+      email: "john@example.com",
+      password: "password123",
+    };
+
+    const response = await post({ params: payload, path: "/user" });
+
+    expect(response.statusCode).toEqual(400);
+    expect(response.body).toEqual("Invalid request params!");
+  });
+
+  it("Should create a valid new user with valid input", async () => {
+    const payload = {
+      email: "john@example.com",
+      name: "John",
+      password: "password123",
+    };
+
+    const response = await post({ params: payload, path: "/user" });
+
+    expect(response.body.name).toEqual(payload.name);
+    expect(response.body.email).toEqual(payload.email);
+  });
 });
