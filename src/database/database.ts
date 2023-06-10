@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize-typescript";
 
-require('dotenv').config();
+require("dotenv").config();
 
 import User from "./models/user";
 import Group from "./models/group";
@@ -13,8 +13,8 @@ const connection = new Sequelize({
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASS,
   host: process.env.POSTGRES_HOST,
-  dialect: 'postgres',
-  port: 5432,
+  dialect: "postgres",
+  port: process.env.POSTGRES_PORT ? Number(process.env.POSTGRES_PORT) : 5432,
   define: {
     timestamps: true,
     underscored: false,

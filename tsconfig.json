@@ -11,6 +11,6 @@
     "emitDecoratorMetadata": true,
     "target": "esnext",
     "moduleResolution": "Node",
-    "types": ["cypress", "node"],
+    "types": ["jest", "node"],
   }
 }

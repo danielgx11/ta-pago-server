@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:unit": "jest --coverage",
-    "test:e2e": "cypress run",
+    "test": "jest --coverage --verbose",
     "dev": "nodemon src/main.ts",
     "start": "ts-node-dev src/main.ts",
     "lint": "eslint . --ext .ts"
@@ -28,6 +27,7 @@
     "@types/jsonwebtoken": "^9.0.1",
     "@types/mocha": "^10.0.1",
     "@types/node": "^18.15.11",
+    "@types/supertest": "^2.0.12",
     "@types/validator": "^13.7.14",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
@@ -41,7 +41,6 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "cypress": "^12.14.0",
     "dotenv": "^16.0.0",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
@@ -50,6 +49,7 @@
     "pg-hstore": "^2.3.4",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.30.0",
-    "sequelize-typescript": "^2.1.5"
+    "sequelize-typescript": "^2.1.5",
+    "supertest": "^6.3.3"
   }
 }

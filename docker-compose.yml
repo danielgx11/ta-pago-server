@@ -1,0 +1,13 @@
+version: "3.2"
+
+services:
+  postgres:
+    image: postgres:10.6-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "1000:5432"
+
+volumes:
+  postgres:
