@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
+    "inlineSourceMap": true,
     "outDir": "dist",
     "strict": true,
     "lib": [
@@ -11,5 +11,6 @@
     "emitDecoratorMetadata": true,
     "target": "esnext",
     "moduleResolution": "Node",
+    "types": ["cypress", "node"],
   }
 }
