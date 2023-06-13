@@ -22,6 +22,10 @@ jobs:
           down-flags: "--volumes"
           services: |
             postgres
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
