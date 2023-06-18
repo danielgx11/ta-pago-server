@@ -12,7 +12,7 @@ Atividades físicas estão cada vez mais presentes na vida das pessoas. Exercíc
 Haja vista essa situação pensamos em desenvolver o Tá Pago! O Sistema vem com a proposta de atuar como uma Plataforma de Gamificação, Saúde e Bem-estar visando compartilhar, acompanhar e rankear o andamento do dia a dia fitness de você e de seus amigos. Por meio dele vai ser possível  que as pessoas formem grupos e com isso definam metas semanais de exercícios! Para motivar a prática das atividades físicas, todos os integrantes terão acesso as metas individuais de cada um exibidas em um sistema de rankeamento, para pontuar, os usuários farão o registro de suas atividades diárias mandando uma foto e com isso receberão os devidos pontos. O sistema também contará com um perfil individual onde o usuário poderá compartilhar sua ficha e exercícios caso queira.
 
 # Explicação das tecnologias utilizadas
-Será desenvolvido um client (front-end) e um servidor (back-end) para suportar a aplicação. As tecnologias utilizadas serão:
+Servidor (back-end) para suportar a aplicação. As tecnologias utilizadas serão:
 
 Para essa primeira entrega desenvolveremos somente o servidor (back-end) da aplicação, e seus respectivos testes unitários.
 
